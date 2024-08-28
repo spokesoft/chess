@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spokesoft &middot Chess</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  <main id="app" data-template="login:page" data-title="Hello"></main>
+
+  <template id="login-page-template">
+    <section class="login-page">
+      <h1 class="title">Chess</h1>
+      <h2 class="subtitle">by spokesoft</h2>
+      <form id="login-form">
+        <div class="field">
+          <label for="username" class="label">Enter your name</label>
+          <div class="control">
+            <input class="input" type="text" id="username" name="username" placeholder="Your name" required />
+          </div>
+        </div>
+        <button class="button" type="submit">Submit</button>
+      </form>
+    </section>
+  </template>
+
+  <template id="game-page-template">
+    <section class="game-page">
+      <h1 class="title">Chess</h1>
+      <div class="columns">
+
+        <div class="column is-flex is-flex-direction-column">
+          <button class="button">New Game</button>
+          <button class="button mt-3">Reset game data</button>
+        </div>
+
+        <div class="column">
+          <div class="is-flex is-align-items-center">
+
+            <div class="captured">
+              <span>♕</span>
+              <span>♖</span>
+              <span>♖</span>
+              <span>♗</span>
+              <span>♗</span>
+              <span>♘</span>
+              <span>♘</span>
+              <span>♙</span>
+              <span>♙</span>
+              <span>♙</span>
+              <span>♙</span>
+              <span>♙</span>
+              <span>♙</span>
+              <span>♙</span>
+              <span>♙</span>
+            </div>
+
+            <div>
+              <div class="player-label">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i data-feather="user"></i>
+                  </span>
+                  <span>Robot</span>
+                </span>
+              </div>
+
+              <canvas></canvas>
+
+              <div class="player-label">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i data-feather="user"></i>
+                  </span>
+                  <span id="game-page-username-label"></span>
+                </span>
+              </div>
+            </div>
+
+            <div class="captured">
+              <span>♛</span>
+              <span>♜</span>
+              <span>♜</span>
+              <span>♝</span>
+              <span>♝</span>
+              <span>♞</span>
+              <span>♞</span>
+              <span>♟</span>
+              <span>♟</span>
+              <span>♟</span>
+              <span>♟</span>
+              <span>♟</span>
+              <span>♟</span>
+              <span>♟</span>
+              <span>♟</span>
+            </div>
+
+          </div>
+        </div>
+        <div class="column">
+          <h1 class="subtitle">
+            <span class="icon-text">
+              <span class="icon">
+                <i data-feather="file-text"></i>
+              </span>
+              Log
+            </span>
+          </h1>
+          <aside class="menu">
+            <ul></ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <!-- Login page template -->
+  <template name="login:page" data-title="Hello world">
+    <nav class="navbar" data-template="navbar"></nav>
+    <section class="login-page">
+      <div data-template="title"></div>
+      <div data-template="login:form" class="mt-3"></div>
+    </section>
+    <footer class="footer" data-template="footer"></footer>
+  </template>
+
+  <!-- Play page template -->
+  <template name="play:page">
+    <nav class="navbar" data-template="navbar"></nav>
+    <section class="play-page">
+      <div data-template="title" class="has-text-centered pb-3"></div>
+      <div class="columns">
+        <div class="column" data-template="sidebar"></div>
+        <div class="column" data-template="game"></div>
+        <div class="column" data-template="log"></div>
+      </div>
+    </section>
+    <footer class="footer" data-template="footer"></footer>
+  </template>
+
+  <!-- Login form template -->
+  <template name="login:form">
+    <form id="login-form">
+      <div class="field">
+        <label for="username" class="label">Enter your name</label>
+        <div class="control">
+          <input class="input" type="text" id="username" name="username" placeholder="Your name" required />
+        </div>
+      </div>
+      <button class="button" type="submit">Submit</button>
+    </form>
+  </template>
+
+  <!-- Navbar template -->
+  <template name="navbar">
+    <div class="container">
+      <div class="navbar-brand" data-template="navbar:brand" data-title="Chess"></div>
+      <div class="navbar-menu" data-template="navbar:menu"></div>
+    </div>
+  </template>
+
+  <!-- Navbar brand template -->
+  <template name="navbar:brand">
+    <a class="navbar-item" href="#">
+      {{ title }}
+    </a>
+    <div class="navbar-burger" data-target="navbarMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </template>
+
+  <!-- Navbar menu template -->
+  <template name="navbar:menu">
+    <div class="navbar-end">
+      <span class="navbar-item" id="username-label"> Guest </span>
+      <span class="navbar-item">
+        <span class="icon">
+          <i data-feather="activity"></i>
+        </span>
+      </span>
+      <span class="navbar-item" id="score-label"> 0 </span>
+    </div>
+  </template>
+
+  <!-- Sidebar template -->
+  <template name="sidebar">
+    <aside class="menu">
+      <ul class="menu-list">
+        <li><a>New game</a></li>
+        <li><a>Forfeit game</a></li>
+        <li><a>Give hint</a></li>
+      </ul>
+    </aside>
+  </template>
+  
+  <!-- Title template -->
+  <template name="title">
+    <h1 class="title">Chess2D</h1>
+    <h2 class="subtitle mb-3">by spokesoft</h2>
+  </template>
+
+  <!-- Footer template -->
+  <template name="footer">
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Chess</strong> by Spokesoft
+        </p>
+      </div>
+    </footer>
+  </template>
+
+  <!-- Game template -->
+  <template name="game" data-player1="Guest" data-player2="Robot">
+    <div data-template="game:player" data-player="{{ player2 }}"></div>
+    <div class="board"></div>
+    <div data-template="game:player" data-player="{{ player1 }}"></div>
+  </template>
+
+  <!-- Game player template -->
+  <template name="game:player">
+    <span>Player: {{ player }}</span>
+  </template>
+
+  <!-- Log template -->
+  <template name="log">
+    This is a log
+    <div data-template="log:entry" data-piece="pawn"></div>
+    <div data-template="log:entry" data-piece="rook"></div>
+    <div data-template="log:entry" data-piece="queen"></div>
+  </template>
+
+  <!-- Log entry template -->
+  <template name="log:entry">
+    Player moved {{ piece }} from [start] to [dest]
+  </template>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/lodash"></script>
+  <script>
+
+    function getCookie(cname) {
+      let entries = document.cookie.split(';');
+      let name = `${cname}=`;
+      for (let i = 0; i < entries.length; i++) {
+        let entry = entries[i];
+        while (entry.charAt(0) == ' ') {
+          entry = entry.substring(1);
+        }
+        if (entry.indexOf(name) == 0) {
+          return entry.substring(name.length, entry.length);
+        }
+      }
+      return void 0;
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      const date = new Date();
+      date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      let expires = `expires=${date.toUTCString()}`;
+      document.cookie = `${cname}=${cvalue};${expires};path=/`;
+    }
+
+    _.templateSettings.interpolate = /{{([\s\S]+?)}}/g;
+
+    const named = document.querySelectorAll('template[name]');
+    const templates = Array.from(named).reduce((templates, template) => {
+      const name = template.getAttribute('name');
+      templates[name] = _.template(template.innerHTML);
+      templates[name].default = getData(template);
+
+      return templates;
+    }, {});
+
+    function getData(target) {
+      const data = {};
+      target.getAttributeNames()
+        .filter(attribute => attribute.startsWith('data-'))
+        .forEach(attribute => {
+          const key = attribute.slice(5);
+          data[key] = target.getAttribute(attribute);
+        });
+      return data;
+    }
+
+    function renderTemplates() {
+      let running = true;
+      let targets = document.querySelectorAll('[data-template]');
+      while (running && targets.length) {
+        targets.forEach(target => {
+          let templateName = target.getAttribute('data-template');
+          let template = templates[templateName];
+          if (!template) {
+            target.removeAttribute('data-template');
+            return;
+          }
+          let templateData = _.defaults(getData(target), template?.default);
+          target.innerHTML = template(templateData);
+          target.removeAttribute('data-template');
+        });
+        targets = document.querySelectorAll('[data-template]');
+      }
+    }
+    renderTemplates();
+
+  </script>
+  <script src="index.js"></script>
+  <script>start()</script>
+
+</body>
+
+</html>
