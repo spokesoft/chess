@@ -1,3 +1,29 @@
+$purple: #8a4d76;
+$pink: #fa7c91;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+// Path to Bulma's sass folder
+@use "bulma/sass" with (
+  $family-primary: 'monospace',
+  $footer-padding: 1.5rem
+);
+
+@import "layout";
+
 html {
   overflow: hidden;
+}
+
+.navbar {
+  height: 52px;
+}
+
+main#content {
+  height: calc(100vh - 52px - 67.5px);
+}
+
+.footer {
+  height: 67.5px;
 }

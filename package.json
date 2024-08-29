@@ -1,15 +1,26 @@
 {
+  "name": "spokesoft.chess",
+  "version": "1.0.0",
+  "description": "A chess game",
+  "main": "index.js",
+  "type": "module",
+  "license": "Apache-2.0",
   "scripts": {
-    "watch": "gulp watch && serve ./www"
+    "watch": "(gulp watch) && (serve ./www)"
   },
   "devDependencies": {
     "browserify": "^17.0.0",
+    "fancy-log": "^2.0.0",
+    "favicons": "^7.2.0",
     "gulp": "^5.0.0",
     "pug": "^3.0.3",
     "rimraf": "^6.0.1",
     "sass": "^1.77.8"
   },
   "dependencies": {
+    "bulma": "^1.0.2",
+    "glob": "^11.0.0",
+    "jquery": "^3.7.1",
     "lodash": "^4.17.21"
   }
 }

@@ -1,4 +1,13 @@
 extends layout
 
 block content
-  h1 Index page
+  .is-flex.is-justify-content-center.is-align-items-center(style="height: 100%")
+    aside.menu.has-text-centered
+      p.menu-label Choose a game
+      ul.menu-list
+        li
+          a.has-text-centered(href="2d.html") Play Chess2D
+        li
+          a.has-text-centered(href="3d.html") Play Chess3D
+        li
+          a.has-text-centered(href="rpg.html") Play ChessRPG

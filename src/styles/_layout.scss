@@ -1,0 +1,20 @@
+body {
+
+  .navbar {
+    height: 52px;
+  }
+
+  .content {
+    height: calc(100vh - 52px - 67.5px);
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer {
+    height: 67.5px;
+  }
+
+}

@@ -1,7 +1,16 @@
 doctype html 
 html(lang="en")
   head
-    title Chess by spokesoft 
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title Chess by spokesoft
+    link(rel="stylesheet" href="bundle.css")
+    block styles
   body
-    include navbar
-    block content
+    include includes/navbar
+    main#content
+      block content
+    include includes/footer
+    script(src="https://unpkg.com/feather-icons")
+    script(src="bundle.js")
+    block scripts
