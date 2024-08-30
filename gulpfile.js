@@ -197,19 +197,19 @@ register(
 );
 
 register("watch:images", "Watch images and rebuild", () =>
-  watch("www/images/**/*", {}, series("clean:images", "build:images"))
+  watch("src/images/**/*", {}, series("clean:images", "build:images"))
 );
 
 register("watch:scripts", "Watch scripts and rebuild", () =>
-  watch("www/scripts/**/*", {}, series("clean:scripts", "build:scripts"))
+  watch("src/scripts/**/*", {}, series("clean:scripts", "build:scripts"))
 );
 
 register("watch:styles", "Watch styles and rebuild", () =>
-  watch("www/styles/**/*", {}, series("clean:styles", "build:styles"))
+  watch("src/styles/**/*", {}, series("clean:styles", "build:styles"))
 );
 
 register("watch:views", "Watch views and rebuild", () =>
-  watch("www/views/**/*", {}, series("clean:views", "build:views"))
+  watch("src/views/**/*", {}, series("clean:views", "build:views"))
 );
 
 register(

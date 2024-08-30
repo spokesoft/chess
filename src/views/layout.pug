@@ -1,16 +1,27 @@
-doctype html 
+mixin playerBar(name)
+  div(class=name).playerbar
+    span.icon-text
+      span.icon
+        i(data-feather="user")
+      span Player 1
+
+doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title Chess by spokesoft
-    link(rel="stylesheet" href="bundle.css")
+    include includes/favicons
+    link(rel="stylesheet" href="styles/bundle.css")
     block styles
   body
-    include includes/navbar
-    main#content
+    header#header
+      include includes/navbar
+    section.section#content
       block content
-    include includes/footer
-    script(src="https://unpkg.com/feather-icons")
-    script(src="bundle.js")
+    footer#footer.footer
+      include includes/footer
+    include includes/login
+    include includes/play
+    script(src="scripts/bundle.js")
     block scripts

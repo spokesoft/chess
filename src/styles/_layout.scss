@@ -1,19 +1,34 @@
 body {
 
-  .navbar {
+  width: 100vw;
+  height: 100vh;
+
+  > header {
+    width: 100vw;
     height: 52px;
   }
 
-  .content {
+  > section {
+
+    width: 100vw;
     height: calc(100vh - 52px - 67.5px);
-    padding-bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    > aside {
+      background-color: red;
+    }
+
+    .game {
+      
+    }
+
+    .log {
+      
+    }
+
   }
 
-  .footer {
+  > footer {
+    width: 100vw;
     height: 67.5px;
   }
 

@@ -1,0 +1,14 @@
+.playerbar {
+  &.top {
+    padding-bottom: 10px;
+  }
+  &.bottom {
+    padding-top: 10px;
+  }
+}
+
+.board {
+  width: calc(8 * 50px);
+  height: calc(8 * 50px);
+  border: 1px solid #333;
+}

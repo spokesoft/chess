@@ -1,0 +1,13 @@
+template(name="login")
+  div(style="width: 300px;")
+    p.title Chess
+    p.subtitle by spokesoft
+    form
+      .field
+        label.label Enter your name
+        .control
+          input.input(type="text" id="username" placeholder="Yout name" required)
+      button.button.is-fullwidth(type="submit")
+        span Submit
+    button.button.is-fullwidth.mt-3
+        span Continue as guest

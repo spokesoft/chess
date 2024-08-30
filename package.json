@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "bulma": "^1.0.2",
+    "feather-icons": "^4.29.2",
     "glob": "^11.0.0",
     "jquery": "^3.7.1",
     "lodash": "^4.17.21"

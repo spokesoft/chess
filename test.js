@@ -1,15 +1,10 @@
-import { rimraf } from 'rimraf';
-import { glob } from 'glob';
-
-glob('www/favicons/**/*')
-  .then(files => {
-    rimraf(files)
-      .then(() => {
-        console.log('Favicons removed', files);
-      });
-  })
+class Element {
+  constructor(tagName) {
+    this.tagName = tagName;
+    this.children = [];
+    this.attributes = {};
+  }
+}
 
 
-// rimraf('www/favicons/**/*', { glob: true }).then((files, files2) => {
-//   console.log('Favicons removed', files, files2);
-// });
+var elem1 = new Element('div');

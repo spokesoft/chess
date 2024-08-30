@@ -7,23 +7,10 @@ $beige-lighter: #eff0eb;
 // Path to Bulma's sass folder
 @use "bulma/sass" with (
   $family-primary: 'monospace',
-  $footer-padding: 1.5rem
+  $footer-padding: 1.5rem,
+  $body-overflow-x: hidden,
+  $body-overflow-y: hidden
 );
 
 @import "layout";
-
-html {
-  overflow: hidden;
-}
-
-.navbar {
-  height: 52px;
-}
-
-main#content {
-  height: calc(100vh - 52px - 67.5px);
-}
-
-.footer {
-  height: 67.5px;
-}
+@import "board";
